@@ -38,7 +38,8 @@ defaults
   errorfile 504 /etc/haproxy/errors/504.http
 {% endif %}
 
-listen galera {{ haproxy_frontend_bind_address }}:{{ haproxy_frontend_port }}
+listen galera
+     bind {{ haproxy_frontend_bind_address }}:{{ haproxy_frontend_port }}
      balance {{ haproxy_backend_balance_method }}
      mode {{ haproxy_backend_mode }}
      option tcpka
